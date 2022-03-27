@@ -206,7 +206,7 @@ function initCanvas(){
 
                 setTimeout(()=>{
                   location.href = location.href;
-                    },2000)
+                    },3000)
             }
         }
     }
