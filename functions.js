@@ -1,9 +1,9 @@
 function initCanvas(){
-	var ctx = document.getElementById("icanvas").getContext("2d");
-	var backgrounImage = new Image();
-	var miner1 = new Image();
-	var stalactites1 = new Image();
-	var stalactites2 = new Image();
+	let ctx = document.getElementById("icanvas").getContext("2d");
+	let backgrounImage = new Image();
+	let miner1 = new Image();
+	let stalactites1 = new Image();
+	let stalactites2 = new Image();
 
     backgrounImage.src = "imagenes/cavereal.jpg";
 	miner1.src = "imagenes/miner.png";
@@ -12,12 +12,12 @@ function initCanvas(){
 	stalactites1.src = "imagenes/estalactita1.png";
 	stalactites2.src = "imagenes/estalactita2.png";
 
-	var cW = ctx.canvas.width;
-	var cH = ctx.canvas.heigth;
+	let cW = ctx.canvas.width;
+	let cH = ctx.canvas.heigth;
 
     timer = true;
 
-	var stalactites = function(options){
+	let stalactites = function(options){
 		return{
 			id: options.id || "",
 			x: options.x || "",
@@ -27,13 +27,13 @@ function initCanvas(){
 			image: options.image || stalactites1
 		}
 	}
-	var enemies = [
+	let enemies = [
        new stalactites({id: "enemy1", x:(Math.random()* (420+340)-340 ) , y: -70, w: 800, h: 380}),
        ];
 
-	var renderEnemies = function(enemyList){
-		for (var i = 0; i < enemyList.length; i++){
-			var enemy = enemyList[i];
+	let renderEnemies = function(enemyList){
+		for (let i = 0; i < enemyList.length; i++){
+			let enemy = enemyList[i];
 			ctx.drawImage(enemy.image, enemy.x, enemy.y += 2.5, enemy.w, enemy.h);
             this.destroy(i, 1);
             launcher.detectMiner(enemy);
@@ -213,8 +213,8 @@ function initCanvas(){
 
 
     this.destroy = function(){
-        for (var i = 0; i < enemies.length; i++) {
-            var e = enemies[i];
+        for (let i = 0; i < enemies.length; i++) {
+            let e = enemies[i];
         if (e.y > 540) {
             enemies.splice(i, 1);
         }
@@ -222,13 +222,13 @@ function initCanvas(){
     }
 
 
-    var launcher = new Launcher();
+    let launcher = new Launcher();
     function animate(){
 	  ctx.clearRect(0, 0, cW, cH);
 	  launcher.render();
 	  renderEnemies(enemies);
     }
-    var animateInterval = setInterval(animate, 6);
+    let animateInterval = setInterval(animate, 6);
 
 
 
@@ -237,7 +237,7 @@ function initCanvas(){
 
  
 
-var start = document.querySelector(".start");
+let start = document.querySelector(".start");
 start.addEventListener("click", function(e){
   window.load(initCanvas());
   });
