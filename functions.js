@@ -1,5 +1,5 @@
 function initCanvas(){
-	let ctx = document.getElementById("icanvas").getContext("2d");
+	const ctx = document.getElementById("icanvas").getContext("2d");
 	let backgrounImage = new Image();
 	let miner1 = new Image();
 	let stalactites1 = new Image();
@@ -237,14 +237,12 @@ function initCanvas(){
 
  
 
-let start = document.querySelector(".start");
-start.addEventListener("click", function(e){
-  window.load(initCanvas());
-  });
+const start = document.querySelector(".start");
 
 start.addEventListener("click", function(e){
   document.querySelector(".enter").style.zIndex = "-1";
   start.style.opacity = "0";
+  initCanvas();
 })
 
 
